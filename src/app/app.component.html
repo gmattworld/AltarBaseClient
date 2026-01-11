@@ -1,7 +1,12 @@
-<app-navbar></app-navbar>
-
-<main class="">
-  <router-outlet></router-outlet>
-</main>
-
+@if (tenantService.tenant()) {
+<div class="tenant-welcome p-4 bg-blue-100 text-blue-800 text-center">
+  Welcome to {{ tenantService.tenant()?.name || 'our service' }}
+</div>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
+} @else {
+<!-- Default Landing Page Layout -->
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+}

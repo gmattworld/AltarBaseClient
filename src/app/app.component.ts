@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './infrastructure/shared/navbar/navbar.component';
 import { FooterComponent } from './infrastructure/shared/footer/footer.component';
+import { TenantService } from './infrastructure/services/tenant.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,5 @@ import { FooterComponent } from './infrastructure/shared/footer/footer.component
 })
 export class AppComponent {
   title = 'phareztech_client';
+  tenantService = inject(TenantService);
 }
