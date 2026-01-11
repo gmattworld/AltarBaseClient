@@ -13,7 +13,6 @@ export const JWTInterceptor: HttpInterceptorFn = (req, next) => {
       if (error.status === 401 && isLoggedIn && currentUser.refresh_token) {
         return authService.refreshToken().pipe(
           switchMap(() => {
-            // Retry the original request with new token
             const newReq = req.clone({
               setHeaders: {
                 Authorization: `Bearer ${authService.currentUserValue?.access_token}`,
@@ -22,7 +21,6 @@ export const JWTInterceptor: HttpInterceptorFn = (req, next) => {
             return next(newReq);
           }),
           catchError((refreshError) => {
-            // If refresh fails, logout user
             authService.logout();
             return throwError(() => refreshError);
           })
