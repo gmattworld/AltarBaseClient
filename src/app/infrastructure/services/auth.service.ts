@@ -52,7 +52,7 @@ export class AuthService {
             .post<BaseTokenResponse>(`${this.apiBaseUrl}/v1/core/login`, {
                 email: email,
                 password: password,
-                public_key: environment.TENANT_PUBLIC_KEY
+                // public_key: environment.TENANT_PUBLIC_KEY
             })
             .pipe(
                 map((response) => {
@@ -104,7 +104,7 @@ export class AuthService {
                 last_name: lastName,
                 email: email,
                 password: password,
-                public_key: environment.TENANT_PUBLIC_KEY
+                // public_key: environment.TENANT_PUBLIC_KEY
             })
             .pipe(
                 map((response) => {

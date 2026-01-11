@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
       return '';
     }
     const address = `${churchConfig.address}, ${churchConfig.city}, ${churchConfig.state}`;
-    const apiKey = environment.googleMapsApiKey;
+    const apiKey = environment.GOOGLE_MAPS_API_KEY;
     // Correct, modern Google Maps embed URL format
     return `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(address)}`;
   });

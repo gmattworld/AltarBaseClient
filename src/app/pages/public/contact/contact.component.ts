@@ -64,7 +64,7 @@ export class ContactComponent implements OnInit {
     const config = this.configData();
     if (!config) return '';
     const address = `${config.address}, ${config.city}, ${config.state}`;
-    const apiKey = environment.googleMapsApiKey;
+    const apiKey = environment.GOOGLE_MAPS_API_KEY;
     return `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(address)}`;
   });
 
